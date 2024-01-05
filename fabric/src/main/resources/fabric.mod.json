@@ -12,7 +12,7 @@
     "sources": "https://github.com/LizIsTired/dust"
   },
   "license": "MPL-2.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/cavedust/icon.png",
   "environment": "*",
   "entrypoints": {
     "client": [
