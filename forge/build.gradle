@@ -31,7 +31,7 @@ dependencies {
     forge "net.minecraftforge:forge:${rootProject.forge_version}"
     // Remove the next line if you don't want to depend on the API
     modApi "dev.architectury:architectury-forge:${rootProject.architectury_version}"
-
+    include "com.minelittlepony:kirin:${project.kirin_version}"
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
 }
@@ -81,4 +81,10 @@ publishing {
     repositories {
         // Add repositories to publish to here.
     }
+}
+
+sourceSets.each{
+    def dir = layout.buildDirectory.dir("sourceSets/${it.name}")
+    it.output.resourcesDir = dir
+    it.java.destinationDirectory = dir
 }

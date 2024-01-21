@@ -196,7 +196,7 @@ public class CaveDustConfigScreen extends Screen implements IExtensionPoint {
     }
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        this.renderBackground(context);
+        this.renderBackground(context, mouseX, mouseY, delta);
         context.drawCenteredTextWithShadow(this.textRenderer, this.title, this.width / 2, 20, 16777215);
         super.render(context, mouseX, mouseY, delta);
     }
@@ -217,6 +217,7 @@ public class CaveDustConfigScreen extends Screen implements IExtensionPoint {
             return (ParticleEffect) Registries.PARTICLE_TYPE.get(new Identifier(Registries.PARTICLE_TYPE.getEntry(ConfigForge.PARTICLE_ID.get()).get().getKey().get().getValue().toString().toLowerCase()));
         } catch (ClassCastException e) {
             MinecraftClient.getInstance().player.sendMessage(Text.literal("Issue loading particle, defaulting to white ash particle!"), false);
+            ConfigForge.PARTICLE_ID.set(Registries.PARTICLE_TYPE.getRawId(ParticleTypes.WHITE_ASH));
             return ParticleTypes.WHITE_ASH;
         }
     }
