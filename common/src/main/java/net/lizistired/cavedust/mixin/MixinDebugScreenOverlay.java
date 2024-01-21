@@ -8,8 +8,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.List;
 
-import static net.lizistired.cavedust.CaveDust.PARTICLE_AMOUNT;
-import static net.lizistired.cavedust.utils.ParticleSpawnUtil.shouldParticlesSpawn;
+import static net.lizistired.cavedust.ParticleSpawnUtil.shouldParticlesSpawn;
 
 @Mixin(DebugHud.class)
 public abstract class MixinDebugScreenOverlay {

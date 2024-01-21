@@ -16,14 +16,14 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "net.lizistired.cavedust.fabric.ExampleModFabric"
+      "net.lizistired.cavedust.fabric.CaveDustFabric"
     ],
     "modmenu": [
       "net.lizistired.cavedust.fabric.CaveDustModMenuFactory"
     ]
   },
   "mixins": [
-    "cavedust.mixins.json"
+    "cavedust1.mixins.json"
   ],
   "depends": {
     "fabric": "*",

@@ -1,5 +1,6 @@
-package net.lizistired.cavedust.utils;
+package net.lizistired.cavedust;
 
+import dev.architectury.injectables.annotations.ExpectPlatform;
 import net.lizistired.cavedust.CaveDustConfig;
 import net.lizistired.cavedust.mixin.ClientWorldAccessor;
 import net.minecraft.client.MinecraftClient;
@@ -55,45 +56,12 @@ public class ParticleSpawnUtil {
     /**
      * Returns true if particles should spawn (uses particle position instead of player).
      * @param client MinecraftClient
-     * @param config CaveDustConfig
      * @param pos BlockPos
      * @return boolean
      */
-    public static boolean shouldParticlesSpawn(MinecraftClient client, CaveDustConfig config, BlockPos pos) {
 
-        //checks if the config is enabled, if the game isn't paused, if the world is valid, if the particle is valid and if the player isn't in a lush caves biome
-        if (!config.getCaveDustEnabled()
-                || client.isPaused()
-                || client.world == null
-                || !client.world.getDimension().bedWorks()
-                || (client.world.getBottomY() > pos.getY())
-                || client.world.getBiome(Objects.requireNonNull(pos)).matchesKey(LUSH_CAVES))
-
-        {
-            timer = 0;
-            shouldParticlesSpawn = false;
-            return false;
-        }
-        if(!config.getSuperFlatStatus()) {
-            if (((ClientWorldAccessor) client.world.getLevelProperties()).getFlatWorld()) {
-                return false;
-            }
-        }
-
-        World world = client.world;
-        int seaLevel = world.getSeaLevel();
-
-        if (!client.player.clientWorld.isSkyVisible(pos)) {
-            if (pos.getY() + 2 < seaLevel){
-                timer = timer + 1;
-                if (timer > 10){
-                    timer = 10;
-                    shouldParticlesSpawn = true;
-                    return true;
-                }
-            }
-        }
-        shouldParticlesSpawn = false;
-        return false;
+    @ExpectPlatform
+    public static boolean shouldParticlesSpawn(MinecraftClient client, BlockPos pos) {
+        throw new AssertionError();
     }
 }

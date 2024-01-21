@@ -9,7 +9,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
 
-import static net.lizistired.cavedust.fabric.ExampleModFabric.config;
+import static net.lizistired.cavedust.fabric.CaveDustFabric.config;
 
 public class ModMenuConfigScreen extends GameGui {
     public ModMenuConfigScreen(@Nullable Screen parent) {
