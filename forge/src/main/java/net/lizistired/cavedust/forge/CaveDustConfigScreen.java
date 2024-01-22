@@ -27,7 +27,6 @@ public class CaveDustConfigScreen extends Screen implements IExtensionPoint {
     private final int imagewidth, imageheight;
     private int leftpos, toppos;
 
-    private final ForgeOptions settings;
     private Element optionsArray[] = new Element[10];
     public static final Identifier OPTIONS_BACKGROUND_TEXTURE = new Identifier("textures/gui/demo_background.png");
 
@@ -38,9 +37,8 @@ public class CaveDustConfigScreen extends Screen implements IExtensionPoint {
 
 
 
-    protected CaveDustConfigScreen(Text title, Screen previous, ForgeOptions settings) {
+    protected CaveDustConfigScreen(Text title, Screen previous) {
         super(Text.translatable("menu.cavedust.title"));
-        this.settings = settings;
         this.imagewidth = 176;
         this.imageheight = 166;
         this.previous = previous;

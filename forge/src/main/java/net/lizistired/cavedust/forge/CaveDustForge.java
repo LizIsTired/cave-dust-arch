@@ -14,16 +14,14 @@ import static net.lizistired.cavedust.ParticleSpawnUtil.shouldParticlesSpawn;
 
 @Mod(CaveDust.MOD_ID)
 public class CaveDustForge {
-    public final ForgeOptions options;
     public CaveDustForge() {
         // Submit our event bus to let architectury register our content on the right time
         EventBuses.registerModEventBus(CaveDust.MOD_ID, FMLJavaModLoadingContext.get().getModEventBus());
-        CaveDust.initializeClient();
         //Path CaveDustFolder = ExampleExpectPlatformImpl.getConfigDirectory();
         //config = new CaveDustConfig(CaveDustFolder.getParent().resolve("cavedust.json"));
         //config.load();
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ConfigForge.SPEC, "cavedust.toml");
-        this.options = new ForgeOptions(MinecraftClient.getInstance(), ExampleExpectPlatformImpl.getConfigDirectory().toFile());
-        ModLoadingContext.get().registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class, () -> new ConfigScreenHandler.ConfigScreenFactory((mc, screen) -> new CaveDustConfigScreen(Text.of("Cave Dust Config"), screen, this.options)));
+        ModLoadingContext.get().registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class, () -> new ConfigScreenHandler.ConfigScreenFactory((mc, screen) -> new CaveDustConfigScreen(Text.of("Cave Dust Config"), screen)));
+        CaveDust.initializeClient();
     }
 }
