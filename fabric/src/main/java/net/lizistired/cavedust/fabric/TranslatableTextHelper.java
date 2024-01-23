@@ -1,4 +1,4 @@
-package net.lizistired.cavedust.utils;
+package net.lizistired.cavedust.fabric;
 
 import com.minelittlepony.common.client.gui.element.AbstractSlider;
 import net.minecraft.text.Text;
