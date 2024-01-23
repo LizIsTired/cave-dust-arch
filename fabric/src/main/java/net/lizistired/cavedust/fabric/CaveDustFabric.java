@@ -16,11 +16,12 @@ public class CaveDustFabric implements ClientModInitializer {
     public static net.lizistired.cavedust.CaveDustConfig config;
     @Override
     public void onInitializeClient() {
-        CaveDust.initializeClient();
+
         Path CaveDustFolder = GamePaths.getConfigDirectory().resolve("cavedust");
         config = new net.lizistired.cavedust.CaveDustConfig(CaveDustFolder.getParent().resolve("cavedust.json"));
         config.load();
         registerKeyBindings();
+        CaveDust.initializeClient();
     }
 
     void god3() {
