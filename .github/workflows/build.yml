@@ -54,11 +54,11 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
                 name: cavedust-fabric-${{ steps.vars.outputs.sha_short }}
-                path: fabric/build/libs/*[0-9].jar
+                path: fabric/build/libs/*.jar
 
       - name: Capture build artifacts (Forge)
         if: ${{ runner.os == 'Linux' && matrix.java == '17' }} # Only upload artifacts built from latest java on one OS
         uses: actions/upload-artifact@v2
         with:
                 name: cavedust-forge-${{ steps.vars.outputs.sha_short }}
-                path: forge/build/libs/*[0-9].jar
+                path: forge/build/libs/*.jar
