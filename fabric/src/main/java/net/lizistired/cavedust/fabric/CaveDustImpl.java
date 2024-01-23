@@ -10,9 +10,9 @@ import static net.lizistired.cavedust.CaveDust.WHITE_ASH_ID;
 import static net.lizistired.cavedust.utils.MathHelper.generateRandomDouble;
 import static net.lizistired.cavedust.utils.MathHelper.normalize;
 import static net.lizistired.cavedust.ParticleSpawnUtil.shouldParticlesSpawn;
+import static net.lizistired.cavedust.fabric.CaveDustFabric.config;
 
 public class CaveDustImpl {
-    public static net.lizistired.cavedust.CaveDustConfig config;
     public static void createCaveDust(MinecraftClient client) {
         //ensure world is not null
         if (client.world == null) return;
