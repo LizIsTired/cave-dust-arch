@@ -7,6 +7,10 @@ on:
 
 jobs:
   build:
+
+    permissions:
+      contents: write
+
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sources
@@ -30,7 +34,13 @@ jobs:
       - run: chmod +x gradlew
 
       - name: Build Release
-        run: ./gradlew :fabric:build :forge:build --stacktrace
+        run: ./gradlew build --stacktrace
+
+      - name: Retrieve Version
+        id: gradle_version
+        run: |
+          echo "::set-output name=VERSION_NAME::$(./gradlew -q :common:printVersionName)"
+
 
       - name: Upload artifacts to Modrinth, Curseforge and GitHub
         uses: Kir-Antipov/mc-publish@v3.3
@@ -40,3 +50,7 @@ jobs:
 
           curseforge-id: 594750
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+
+          files: |
+            fabric/build/libs/*.jar
+            forge/build/libs/*.jar
