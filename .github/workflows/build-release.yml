@@ -30,7 +30,7 @@ jobs:
       - run: chmod +x gradlew
 
       - name: Build Release
-        run: ./gradlew build --stacktrace
+        run: ./gradlew :fabric:build :forge:build --stacktrace
 
       - name: Upload artifacts to Modrinth, Curseforge and GitHub
         uses: Kir-Antipov/mc-publish@v3.3
