@@ -1,6 +1,5 @@
 package net.lizistired.cavedust.forge;
 
-import net.lizistired.cavedust.CaveDustConfig;
 import net.lizistired.cavedust.mixin.ClientWorldAccessor;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.util.math.BlockPos;
