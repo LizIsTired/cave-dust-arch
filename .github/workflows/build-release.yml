@@ -34,13 +34,7 @@ jobs:
       - run: chmod +x gradlew
 
       - name: Build Release
-        run: ./gradlew build --stacktrace
-
-      - name: Retrieve Version
-        id: gradle_version
-        run: |
-          echo "::set-output name=VERSION_NAME::$(./gradlew -q :common:printVersionName)"
-
+        run: ./gradlew :forge:build --stacktrace
 
       - name: Upload artifacts to Modrinth, Curseforge and GitHub
         uses: Kir-Antipov/mc-publish@v3.3
@@ -52,5 +46,21 @@ jobs:
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
 
           files: |
-            fabric/build/libs/*.jar
-            forge/build/libs/*.jar
+            forge/build/libs/cavedust-[0-9].jar
+
+      - run: chmod +x gradlew
+
+      - name: Build Release
+        run: ./gradlew :fabric:build --stacktrace
+
+      - name: Upload artifacts to Modrinth, Curseforge and GitHub
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          modrinth-id: jawg7zT1
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+
+          curseforge-id: 594750
+          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+
+          files: |
+            fabric/build/libs/cavedust-[0-9].jar
