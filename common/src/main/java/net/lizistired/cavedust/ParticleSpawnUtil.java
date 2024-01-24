@@ -1,8 +1,6 @@
 package net.lizistired.cavedust;
 
 import dev.architectury.injectables.annotations.ExpectPlatform;
-import net.lizistired.cavedust.CaveDustConfig;
-import net.lizistired.cavedust.mixin.ClientWorldAccessor;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
